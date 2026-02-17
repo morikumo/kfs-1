@@ -17,7 +17,9 @@ start:
     cli                  ; disable interrupts
     mov esp, stack_top   ; setup stack
     call kernel_main
+.hang:
     hlt                  ; stop CPU
+    jmp .hang            ; loop if interrupt wakes CPU
 
 SECTION .bss
 align 16
