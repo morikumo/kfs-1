@@ -91,9 +91,16 @@ void printk(const char *str)
 /* Appelee par boot.asm apres la config de la pile */
 void kernel_main(void)
 {
+    int i = 0;
+
     clear_screen();
     set_color(VGA_GREEN, VGA_BLACK);
     printk("42");
+    while(i < 24){
+        printk("\n");
+        printk("KFS1");
+        i++;
+    }
     while (1)
         __asm__("hlt");
 }
