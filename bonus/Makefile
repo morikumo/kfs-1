@@ -33,6 +33,7 @@ iso: $(NAME)
 
 clean:
 	rm -f *.o kernel.bin
+	rm -f iso/boot/kernel.bin
 
 docker-iso:
 	rm kfs.iso
