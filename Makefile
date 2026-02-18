@@ -28,10 +28,12 @@ $(NAME): $(OBJ_ASM) $(OBJ_C)
 iso: $(NAME)
 	mkdir -p iso/boot
 	cp $(NAME) iso/boot/kernel.bin
+	rm $(NAME)
 	grub-mkrescue -o kfs.iso iso
 
 clean:
 	rm -f *.o kernel.bin
+	rm -f iso/boot/kernel.bin
 
 docker-iso:
 	docker run --rm --platform linux/amd64 -v $(PWD):/kfs -w /kfs debian:latest bash -c \
