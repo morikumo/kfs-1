@@ -31,10 +31,6 @@ iso: $(NAME)
 	grub-mkrescue -o kfs.iso iso
 
 clean:
-	rm -f *.o kernel.bin
-
-docker-iso:
-	docker run --rm --platform linux/amd64 -v $(PWD):/kfs -w /kfs debian:latest bash -c \
-		"apt-get update -qq && apt-get install -y -qq nasm gcc make grub-pc-bin grub-common xorriso mtools >/dev/null 2>&1 && make"
+	rm -f *.o kernel.bin kfs.iso
 
 re: clean all
