@@ -54,8 +54,6 @@ void kernel_main(void)
     clear_screen();
     set_color(VGA_GREEN, VGA_BLACK);
     printk("42");
-    set_color(VGA_WHITE, VGA_BLACK);
-    printk(" - kernel ready");
     while (1)
         __asm__("hlt");
 }
